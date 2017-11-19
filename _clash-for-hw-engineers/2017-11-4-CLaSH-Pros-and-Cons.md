@@ -24,7 +24,7 @@ VHDL and Verilog are also brutally simple, whereas Haskell is not, making it a l
 
 #### Pro - Simulation
 
-Because code written in CLaSH is valid Haskell you can perform functional tests using test-benches written in native Haskell. Result: insanely fast testing (if you know what you're doing) and amazing randomised testing capabilities.
+Because code written in CLaSH is valid Haskell you can perform functional tests using test-benches written in native Haskell. Result: insanely fast testing (if you know what you're doing) and amazing randomised testing capabilities provided by the Haskell QuickCheck library.
 
 #### Con - There's an intermediate language before synthesis
 

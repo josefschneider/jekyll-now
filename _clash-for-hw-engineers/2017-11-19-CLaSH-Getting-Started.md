@@ -94,8 +94,8 @@ b :: Signal (Int, Int) = bundle $ (signal 3, signal 12)
 
 ## Bit array types
 * `BitVector n`: a single-dimension vector of n bits, much like VHDL's std_logic_vector.
-* `Unsigned n`: an unsigned integer of size n bits
-* `Signed n`: a signed integer of size n bits
+* `Unsigned n`: an unsigned integer of size n bits, similar to VHDL's unsigned.
+* `Signed n`: a signed integer of size n bits, similar to VHDL's signed.
 
 Creating a variable and assigning a value to it works as expected, though it does truncate the result if it is too big:
 
@@ -120,7 +120,7 @@ Care must be taken when converting types to make sure no data is lost to truncat
 
 ```haskell
 bv :: BitVector 12 = resize (100 :: BitVector 10)
-size :: Int = bitSizeMaybe bv
+size :: Maybe Int = bitSizeMaybe bv
 ```
 
 Addition, subtraction, multiplication, shiftR and shiftL are supported by all types:
@@ -213,7 +213,7 @@ sn = d1024  -- No problem
 sn = d1025  -- Error!
 ```
 
-This has to do with some funky Haskell type stuff, but luckily there's a way around this limitation though it's a bit more verbose:
+This is because the shorthand version is only defined up to the value 1024, but luckily there's a way around this limitation, though it's a bit more verbose:
 
 ```haskell
 sn = SNat @ 20000000 -- No problem
