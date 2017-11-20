@@ -12,7 +12,7 @@ I found the following resources essential when getting started:
 Great! So you've done the tutorials, have installed your CLaSH tools and have a rough understanding of Haskell, but how to write hardware? I hope to cover some basics here, especially things that I found confusing. Make sure to have the [CLaSH language reference](http://hackage.haskell.org/package/clash-prelude-0.11.2) and [Stackage](https://www.stackage.org/) open for your respective CLaSH and Haskell needs. When it comes to experimenting with different commands nothing beats the `clash --interactive` shell.
 
 
-## Signal
+## [Signal](haskel://www.stackage.org/haddock/lts-9.10/clash-prelude-0.11.2/CLaSH-Signal.html)
 A Signal is a functor that wraps a type, turning it into a clocked synchronous signal that can be used as a top-level input/output. A variable also needs to be wrapped by a Signal if it is to be registered or used by a state machine. Take the following two statements:
 
 ```haskell
@@ -93,9 +93,9 @@ b :: Signal (Int, Int) = bundle $ (signal 3, signal 12)
 
 
 ## Bit array types
-* `BitVector n`: a single-dimension vector of n bits, much like VHDL's std_logic_vector.
-* `Unsigned n`: an unsigned integer of size n bits, similar to VHDL's unsigned.
-* `Signed n`: a signed integer of size n bits, similar to VHDL's signed.
+* [`BitVector n`](https://www.stackage.org/haddock/lts-9.10/clash-prelude-0.11.2/CLaSH-Sized-Internal-BitVector.html): a single-dimension vector of n bits, much like VHDL's std_logic_vector.
+* [`Unsigned n`](https://www.stackage.org/haddock/lts-9.10/clash-prelude-0.11.2/CLaSH-Sized-Internal-Unsigned.html): an unsigned integer of size n bits, similar to VHDL's unsigned.
+* [`Signed n`](https://www.stackage.org/haddock/lts-9.10/clash-prelude-0.11.2/CLaSH-Sized-Internal-Signed.html): a signed integer of size n bits, similar to VHDL's signed.
 
 Creating a variable and assigning a value to it works as expected, though it does truncate the result if it is too big:
 
